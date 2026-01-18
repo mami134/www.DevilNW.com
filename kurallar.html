@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kurallar | DevilNW</title>
     <style>
+        /* GENEL AYARLAR */
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { font-family: 'Segoe UI', sans-serif; background: #0e0f13; color: #fff; }
         
@@ -21,12 +22,38 @@
         .menu a { color: #cfd3ff; text-decoration: none; margin-left: 20px; font-weight: 500; transition: 0.3s; }
         .menu a:hover { color: #ff3b3b; }
 
-        .container { max-width: 800px; margin: auto; padding: 80px 20px; }
-        h1 { text-align: center; color: #ff3b3b; font-size: 40px; margin-bottom: 30px; letter-spacing: 2px; }
+        .container { max-width: 900px; margin: auto; padding: 60px 20px; }
+        h1 { text-align: center; color: #ff3b3b; font-size: 45px; margin-bottom: 40px; letter-spacing: 2px; }
         
-        .rules-content { background: #161821; padding: 40px; border-radius: 15px; border-left: 5px solid #ff3b3b; line-height: 1.8; }
-        .rules-content h2 { color: #ff3b3b; margin-bottom: 15px; font-size: 20px; }
-        .rules-content p { margin-bottom: 10px; color: #cfd3ff; }
+        .rules-section { 
+            background: #161821; 
+            padding: 30px; 
+            border-radius: 15px; 
+            border-left: 5px solid #ff3b3b; 
+            margin-bottom: 30px;
+        }
+        
+        h2 { color: #ff3b3b; margin-bottom: 20px; border-bottom: 1px solid #333; padding-bottom: 10px; }
+        
+        .rules-list { list-style: none; }
+        .rules-list li { 
+            padding: 10px 0; 
+            border-bottom: 1px solid rgba(255,255,255,0.05); 
+            color: #cfd3ff;
+            display: flex;
+            gap: 10px;
+        }
+        .rules-list li b { color: #ff3b3b; min-width: 30px; }
+
+        .note { 
+            background: rgba(255, 59, 59, 0.1); 
+            padding: 15px; 
+            border-radius: 8px; 
+            color: #ff3b3b; 
+            font-weight: bold; 
+            margin-top: 15px;
+            text-align: center;
+        }
 
         footer { text-align: center; padding: 40px; opacity: 0.5; font-size: 14px; }
     </style>
@@ -34,33 +61,62 @@
 <body>
 
 <nav>
+    <a href="index.html" class="nav-logo">DEVILNW</a>
     <div class="menu">
         <a href="index.html">Ana Sayfa</a>
         <a href="magaza.html">Mağaza</a>
         <a href="yardim.html">Yardım</a>
     </div>
 </nav>
-</nav>
 
 <div class="container">
     <h1>DevilNW Kurallar</h1>
     
-    <div class="rules-content">
-        <h2>1. Saygı Kuralları</h2>
-        <p>Oyunculara ve yetkililere küfür, hakaret etmek kesinlikle yasaktır.</p>
-        
-        <h2>2. Hile Kullanımı</h2>
-        <p>Oyun içi avantaj sağlayan hile ve üçüncü taraf yazılımlar sınırsız uzaklaştırma sebebidir.</p>
+    <div class="rules-section">
+        <h2>🎮 Oyun İçi Kurallar</h2>
+        <ul class="rules-list">
+            <li><b>1-)</b> Hile kullanmak yasaktır.</li>
+            <li><b>2-)</b> Hile kontrolünden kaçmak yasaktır.</li>
+            <li><b>3-)</b> Bilgisayarınızda hile bulundurmak yasaktır.</li>
+            <li><b>4-)</b> Her türlü reklam yapmak yasaktır.</li>
+            <li><b>5-)</b> Yetkililerin ismine benzer isimler kullanmak yasaktır.</li>
+            <li><b>6-)</b> Uygunsuz isim kullanmak yasaktır.</li>
+            <li><b>7-)</b> Küfür veya argo kelime kullanmak yasaktır.</li>
+            <li><b>8-)</b> Politik veya siyasi görüşler hakkında konuşmak yasaktır.</li>
+            <li><b>9-)</b> İllegal olan şeyler hakkında sohbet edilmesi yasaktır.</li>
+            <li><b>10-)</b> Sunucuda olan her türlü bug veya açık kullanımı yasaktır.</li>
+            <li><b>11-)</b> Yetkililerden gereğinden fazla gereksiz şeyler için rahatsız etmek yasaktır.</li>
+            <li><b>12-)</b> 5'den fazla hesap oluşturmak yasaktır.</li>
+            <li><b>13-)</b> Oyun hesabınızı satmak veya birine devretmek yasaktır.</li>
+            <li><b>14-)</b> Sunucuda olan bir eşyayı sunucudan bağımsız bir şey ile takas etmek veya satmak yasaktır. (Kredi ile takas serbesttir.)</li>
+        </ul>
+        <div class="note">
+            NOT: Yazan maddelerin ihlali halinde sunucudan geçici veya kalıcı olarak yasaklanabileceğinizi unutmayınız!
+        </div>
+    </div>
 
-        <h2>3. Reklam ve Spam</h2>
-        <p>Başka sunucu reklamı yapmak veya sohbeti kirletmek yasaktır.</p>
-        
-        <p style="margin-top: 20px; font-weight: bold; color: #ff3b3b;">* Sunucuya giriş yapan herkes kuralları okumuş sayılır.</p>
+    <div class="rules-section">
+        <h2>💬 Discord Kuralları</h2>
+        <ul class="rules-list">
+            <li><b>1-)</b> Herhangi bir kanalı amacı dışı kullanmak yasaktır.</li>
+            <li><b>2-)</b> Her türlü reklam yapmak yasaktır.</li>
+            <li><b>3-)</b> Küfür veya argo kelime kullanmak yasaktır.</li>
+            <li><b>4-)</b> Her türlü uygunsuz içerik paylaşmak yasaktır.</li>
+            <li><b>5-)</b> Herhangi bir kanalda pack paylaşmak yasaktır.</li>
+            <li><b>6-)</b> Politik veya siyasi görüşler hakkında konuşmak yasaktır.</li>
+            <li><b>7-)</b> Başkalarının kişisel bilgilerini paylaşmak yasaktır.</li>
+            <li><b>8-)</b> İllegal olan şeyler hakkında sohbet edilmesi yasaktır.</li>
+            <li><b>9-)</b> Başkalarını rahatsız etmek yasaktır (özellikle ses kanallarında).</li>
+            <li><b>10-)</b> Türkiye'deki bilişim hukuku ve ilgili yasalar geçerlidir. Kanun dışı paylaşımlar ve aktivitelerden sorumlusunuz.</li>
+        </ul>
+        <div class="note">
+            NOT: Yazan maddelerin ihlali halinde sunucudan geçici veya kalıcı olarak yasaklanabileceğinizi unutmayınız!
+        </div>
     </div>
 </div>
 
 <footer>
-    © DevilNW Network • 2024 Tüm Hakları Saklıdır.
+    © DevilNW Network • 2026 Tüm Hakları Saklıdır.
 </footer>
 
 </body>
