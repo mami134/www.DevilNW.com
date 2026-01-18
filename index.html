@@ -3,160 +3,121 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DevilNW | Resmi Site</title>
+<title>DevilNW</title>
 
 <style>
 body{
     margin:0;
-    font-family:Segoe UI, Arial;
-    background:linear-gradient(180deg,#0b0b0b,#120000);
+    font-family:Arial, sans-serif;
+    background:radial-gradient(circle at top, #1a0000, #050000);
     color:#fff;
 }
 
-nav{
-    background:#0f0f14;
-    padding:14px 30px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-}
-
-nav a{
-    color:#cfcfcf;
-    text-decoration:none;
-    margin:0 12px;
-}
-nav a:hover{color:#ff3b3b}
-
-.hero{
+header{
+    padding:40px 20px;
     text-align:center;
-    padding:60px 20px;
 }
 
-.hero img{
-    width:160px;
-    filter:drop-shadow(0 0 30px red);
+.logo{
+    width:180px;
+    filter:drop-shadow(0 0 25px #ff0000);
+    margin-bottom:15px;
 }
 
-.hero h1{
+header h1{
+    margin:0;
+    font-size:40px;
+    letter-spacing:3px;
     color:#ff2e2e;
-    letter-spacing:4px;
 }
 
-.ip{
-    margin:10px 0;
-    background:#1a1a1a;
-    display:inline-block;
-    padding:8px 16px;
-    border-radius:20px;
+header p{
+    margin-top:8px;
+    opacity:.8;
 }
 
-.notice{
-    margin-top:15px;
-    color:#ff8080;
-    font-weight:600;
-}
-
-.buttons{
-    margin-top:25px;
-}
-
-.btn{
-    padding:12px 22px;
-    border-radius:10px;
-    margin:5px;
-    display:inline-block;
-    text-decoration:none;
-    font-weight:600;
-}
-
-.red{background:#ff2e2e;color:#fff}
-.blue{background:#5865F2;color:#fff}
-
-.shop{
-    max-width:1100px;
+main{
+    max-width:1000px;
     margin:auto;
     padding:40px 20px;
 }
 
-.cards{
+.menu{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-    gap:25px;
+    grid-template-columns:1fr 1fr;
+    gap:30px;
 }
 
-.card{
-    background:#151515;
-    padding:30px;
-    border-radius:18px;
+.box{
+    background:linear-gradient(145deg,#140000,#0a0000);
+    border-radius:22px;
+    padding:60px 25px;
     text-align:center;
-    transition:.3s;
     cursor:pointer;
-    border:2px solid #1f1f1f;
+    transition:.35s;
+    position:relative;
+    overflow:hidden;
+    border:2px solid #220000;
 }
 
-.card:hover{
+.box::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(120deg,transparent,#ff2e2e,transparent);
+    opacity:.08;
+}
+
+.box:hover{
+    transform:translateY(-6px) scale(1.03);
     border-color:#ff2e2e;
-    transform:translateY(-6px);
+    box-shadow:0 0 40px #ff000040;
 }
 
-.card h3{
+.box h2{
+    font-size:30px;
     color:#ff4c4c;
+    margin-bottom:10px;
+}
+
+.box p{
+    opacity:.8;
+    font-size:15px;
 }
 
 footer{
     text-align:center;
-    opacity:.6;
-    padding:20px;
+    padding:25px;
+    opacity:.5;
+    font-size:14px;
 }
 </style>
 </head>
 
 <body>
 
-<nav>
-    <b>DEVILNW</b>
-    <div>
-        <a href="#">Ana Sayfa</a>
-        <a href="#shop">Mağaza</a>
-        <a href="https://discord.gg/" target="_blank">Discord</a>
-    </div>
-</nav>
-
-<section class="hero">
-    <!-- LOGO BASE64 (GARANTİ ÇALIŞIR) -->
-    <img src="data:image/png;base64,PUT_LOGO_BASE64_BURAYA">
+<header>
+    <img src="./logo.png" class="logo" alt="DevilNW Logo">
     <h1>DEVILNW</h1>
-    <div class="ip">IP: <b>DevilNW.aternos.me</b></div>
+    <p>Minecraft Sunucu Satış Merkezi</p>
+</header>
 
-    <div class="notice">
-        VIP, MVIP, MVIP+, TVIP mağazaya eklendi
-    </div>
-
-    <div class="buttons">
-        <a href="#shop" class="btn red">Mağaza</a>
-        <a href="https://discord.gg/" target="_blank" class="btn blue">Discord Katıl</a>
-    </div>
-</section>
-
-<section class="shop" id="shop">
-    <h2>🛒 Mağaza</h2>
-
-    <div class="cards">
-        <div class="card">
-            <h3>VIP’ler</h3>
-            <p>VIP • MVIP • MVIP+ • TVIP</p>
+<main>
+    <div class="menu">
+        <div class="box" onclick="location.href='vip.html'">
+            <h2>VIP’ler</h2>
+            <p>Özel yetkiler • Güç • Ayrıcalık</p>
         </div>
 
-        <div class="card">
-            <h3>Diğer Eşyalar</h3>
+        <div class="box" onclick="location.href='esyalar.html'">
+            <h2>Diğer Eşyalar</h2>
             <p>Kasa anahtarı • Item • Özel ürünler</p>
         </div>
     </div>
-</section>
+</main>
 
 <footer>
-© DevilNW • Tüm Hakları Saklıdır
+    © DevilNW • Tüm Hakları Saklıdır
 </footer>
 
 </body>
