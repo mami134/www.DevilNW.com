@@ -3,92 +3,114 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DevilNW</title>
+<title>DevilNW | Resmi Site</title>
 
 <style>
+*{box-sizing:border-box}
 body{
     margin:0;
-    font-family:Arial, sans-serif;
-    background:radial-gradient(circle at top, #1a0000, #050000);
+    font-family:Segoe UI, Arial;
+    background:#0e0f13;
     color:#fff;
 }
 
-header{
-    padding:40px 20px;
+/* NAVBAR */
+nav{
+    background:rgba(20,20,25,.9);
+    backdrop-filter:blur(8px);
+    padding:14px 30px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+nav .menu a{
+    color:#cfd3ff;
+    text-decoration:none;
+    margin:0 12px;
+    font-weight:500;
+}
+
+nav .menu a:hover{
+    color:#ff3b3b;
+}
+
+/* HERO */
+.hero{
+    background:
+    linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.9)),
+    url("https://images.unsplash.com/photo-1627856014754-2907e235fa4d");
+    background-size:cover;
+    padding:80px 20px;
     text-align:center;
 }
 
-.logo{
-    width:180px;
+.hero img{
+    width:140px;
     filter:drop-shadow(0 0 25px #ff0000);
-    margin-bottom:15px;
 }
 
-header h1{
-    margin:0;
-    font-size:40px;
+.hero h1{
+    margin:15px 0 5px;
+    color:#ff3b3b;
     letter-spacing:3px;
-    color:#D7070F;
 }
 
-header p{
-    margin-top:8px;
-    opacity:.8;
+.hero .ip{
+    margin-top:10px;
+    font-size:18px;
+    background:#161821;
+    display:inline-block;
+    padding:8px 18px;
+    border-radius:30px;
 }
 
-main{
-    max-width:1000px;
+/* BUTTONS */
+.buttons{
+    margin-top:25px;
+}
+
+.btn{
+    display:inline-block;
+    padding:12px 22px;
+    border-radius:10px;
+    text-decoration:none;
+    margin:5px;
+    font-weight:600;
+}
+
+.btn.red{background:#ff3b3b;color:#fff}
+.btn.blue{background:#5865F2;color:#fff}
+
+/* CONTENT */
+.container{
+    max-width:1100px;
     margin:auto;
     padding:40px 20px;
 }
 
-.menu{
+.cards{
     display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:30px;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:20px;
 }
 
-.box{
-    background:linear-gradient(145deg,#140000,#0a0000);
-    border-radius:22px;
-    padding:60px 25px;
-    text-align:center;
-    cursor:pointer;
-    transition:.35s;
-    position:relative;
-    overflow:hidden;
-    border:2px solid #220000;
+.card{
+    background:#161821;
+    border-radius:14px;
+    padding:20px;
 }
 
-.box::before{
-    content:"";
-    position:absolute;
-    inset:0;
-    background:linear-gradient(120deg,transparent,#ff2e2e,transparent);
-    opacity:.08;
+.card h3{
+    margin-top:0;
+    color:#ff3b3b;
 }
 
-.box:hover{
-    transform:translateY(-6px) scale(1.03);
-    border-color:#ff2e2e;
-    box-shadow:0 0 40px #ff000040;
-}
-
-.box h2{
-    font-size:30px;
-    color:#ff4c4c;
-    margin-bottom:10px;
-}
-
-.box p{
-    opacity:.8;
-    font-size:15px;
-}
-
+/* FOOTER */
 footer{
     text-align:center;
     padding:25px;
-    opacity:.5;
+    opacity:.6;
     font-size:14px;
 }
 </style>
@@ -96,30 +118,52 @@ footer{
 
 <body>
 
-<header>
-    <img src="./logo.png" class="logo" alt="DevilNW Logo">
-    <h1>DEVILNW</h1>
-    <p>Minecraft Sunucu Satış Merkezi</p>
-</header>
-
-<main>
+<nav>
+    <strong>DEVILNW</strong>
     <div class="menu">
-        <div class="box" onclick="location.href='vip.html'">
-            <h2>VIP’ler</h2>
-            <p>Özel yetkiler • Güç • Ayrıcalık</p>
+        <a href="#">Ana Sayfa</a>
+        <a href="#">Mağaza</a>
+        <a href="#">Kredi Yükle</a>
+        <a href="#">Yardım</a>
+        <a href="#">Kurallar</a>
+    </div>
+</nav>
+
+<section class="hero">
+    <img src="logo.png" alt="DevilNW Logo">
+    <h1>DEVILNW</h1>
+    <div class="ip">IP: <b>DevilNW.aternos.me</b></div>
+
+    <div class="buttons">
+        <a class="btn red" href="#">Mağazaya Git</a>
+        <a class="btn blue" href="https://discord.gg/" target="_blank">Discord Katıl</a>
+    </div>
+</section>
+
+<section class="container">
+    <h2>📰 Haberler</h2>
+
+    <div class="cards">
+        <div class="card">
+            <h3>Sunucu Açıldı!</h3>
+            <p>DevilNW resmi olarak yayında. Hepiniz hoş geldiniz.</p>
         </div>
 
-        <div class="box" onclick="location.href='esyalar.html'">
-            <h2>Diğer Eşyalar</h2>
-            <p>Kasa anahtarı • Item • Özel ürünler</p>
+        <div class="card">
+            <h3>VIP Sistemi</h3>
+            <p>VIP ve VIP+ paketleri mağazada.</p>
+        </div>
+
+        <div class="card">
+            <h3>Discord Aktif</h3>
+            <p>Çekilişler ve duyurular Discord’da.</p>
         </div>
     </div>
-</main>
+</section>
 
 <footer>
-    © DevilNW • Tüm Hakları Saklıdır
+© DevilNW • Tüm Hakları Saklıdır
 </footer>
 
 </body>
 </html>
-
