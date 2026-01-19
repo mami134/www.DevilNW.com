@@ -2,23 +2,254 @@
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>DevilNW | Eşyalar</title>
+
 <style>
-body{background:#0b0b0b;color:#fff;font-family:Arial;margin:0}
-.card{background:#141414;padding:20px;margin:20px;border-radius:12px}
+*{box-sizing:border-box}
+body{
+    margin:0;
+    font-family:Segoe UI, Arial;
+    background:#0e0f13;
+    color:#fff;
+}
+
+/* NAVBAR */
+nav{
+    background:rgba(20,20,25,.95);
+    padding:15px 30px;
+    display:flex;
+    justify-content:center;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+nav .menu a{
+    color:#cfd3ff;
+    text-decoration:none;
+    margin:0 15px;
+    font-weight:600;
+    transition:.3s;
+}
+
+nav .menu a:hover{
+    color:#ff3b3b;
+}
+
+/* BAŞLIK */
+h1{
+    text-align:center;
+    margin:40px 0 10px;
+    color:#ff3b3b;
+}
+
+/* KARTLAR */
+.item-container{
+    max-width:1100px;
+    margin:auto;
+    padding:40px 20px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.item-card{
+    background:#161821;
+    border-radius:16px;
+    padding:25px;
+    text-align:center;
+    transition:.3s;
+    border:2px solid transparent;
+}
+
+.item-card:hover{
+    transform:translateY(-8px);
+    border-color:#ff3b3b;
+}
+
+.item-card h2{
+    margin-top:0;
+    color:#ff3b3b;
+}
+
+.desc{
+    color:#b0b0b0;
+    font-size:15px;
+    line-height:1.6;
+    margin:15px 0;
+}
+
+.price{
+    font-size:20px;
+    font-weight:700;
+    margin:15px 0;
+}
+
+.buy-btn{
+    display:inline-block;
+    background:#ff3b3b;
+    color:#fff;
+    padding:12px 26px;
+    border-radius:10px;
+    text-decoration:none;
+    font-weight:600;
+    cursor:pointer;
+}
+
+.buy-btn:hover{
+    opacity:.85;
+}
+
+/* POPUP */
+.popup{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.75);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    z-index:2000;
+}
+
+.popup-box{
+    background:#161821;
+    padding:30px;
+    border-radius:16px;
+    text-align:center;
+    max-width:400px;
+    width:90%;
+}
+
+.popup-box h3{
+    color:#ff3b3b;
+    margin-top:0;
+}
+
+.popup-box p{
+    color:#cfcfcf;
+    margin:15px 0 25px;
+}
+
+.popup-buttons a{
+    display:inline-block;
+    margin:6px;
+    padding:12px 22px;
+    border-radius:10px;
+    text-decoration:none;
+    font-weight:600;
+}
+
+.discord{
+    background:#5865F2;
+    color:#fff;
+}
+
+.close{
+    background:#333;
+    color:#fff;
+}
+
+/* FOOTER */
+footer{
+    text-align:center;
+    padding:25px;
+    color:#777;
+    font-size:14px;
+}
 </style>
 </head>
+
 <body>
 
-<div class="card">
-<h2>Kasa Anahtarı</h2>
-<p>Özel ödüller</p>
+<!-- NAVBAR -->
+<nav>
+    <div class="menu">
+        <a href="index.html">Ana Sayfa</a>
+        <a href="magaza.html">Mağaza</a>
+        <a href="yardim.html">Yardım</a>
+        <a href="kurallar.html">Kurallar</a>
+    </div>
+</nav>
+
+<h1>🧰 Eşyalar</h1>
+
+<div class="item-container">
+
+    <div class="item-card">
+        <h2>Devil Charm</h2>
+        <div class="desc">
+            Tüm charmların efektlerini<br>
+            kalıcı olarak alırsın.
+        </div>
+        <div class="price">44.99 TL</div>
+        <a class="buy-btn" onclick="openPopup()">Satın Al</a>
+    </div>
+
+    <div class="item-card">
+        <h2>Anahtar Kasası</h2>
+        <div class="desc">
+            Anahtar kasası<br>
+            açma anahtarı
+        </div>
+        <div class="price">14.99 TL</div>
+        <a class="buy-btn" onclick="openPopup()">Satın Al</a>
+    </div>
+
+    <div class="item-card">
+        <h2>Kit Kasası</h2>
+        <div class="desc">
+            Kit kasası<br>
+            açma anahtarı
+        </div>
+        <div class="price">24.99 TL</div>
+        <a class="buy-btn" onclick="openPopup()">Satın Al</a>
+    </div>
+
+    <div class="item-card">
+        <h2>Devil Kasası</h2>
+        <div class="desc">
+            Devil kasası<br>
+            açma anahtarı
+        </div>
+        <div class="price">49.99 TL</div>
+        <a class="buy-btn" onclick="openPopup()">Satın Al</a>
+    </div>
+
 </div>
 
-<div class="card">
-<h2>Özel Item</h2>
-<p>Sadece DevilNW</p>
+<footer>
+    © DevilNW • 2026 Tüm Hakları Saklıdır.
+</footer>
+
+<!-- POPUP -->
+<div class="popup" id="popup">
+    <div class="popup-box">
+        <h3>Satın Alma Bilgilendirmesi</h3>
+        <p>
+            Satın almak için Discord sunucumuzda<br>
+            <b>ticket açmanız gerekmektedir.</b>
+        </p>
+
+        <div class="popup-buttons">
+            <a href="https://discord.gg/G8RcrAjuRF"
+               target="_blank"
+               class="discord">
+               Discord’a Katıl
+            </a>
+            <a class="close" onclick="closePopup()">Kapat</a>
+        </div>
+    </div>
 </div>
+
+<script>
+function openPopup(){
+    document.getElementById("popup").style.display="flex";
+}
+function closePopup(){
+    document.getElementById("popup").style.display="none";
+}
+</script>
 
 </body>
 </html>
