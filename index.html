@@ -28,6 +28,7 @@
             z-index: 1000;
         }
         .nav-logo { font-weight: bold; font-size: 22px; color: #ff3b3b; text-decoration: none; letter-spacing: 1px; }
+        .menu { display: flex; }
         .menu a { color: #cfd3ff; text-decoration: none; margin-left: 20px; font-weight: 500; transition: 0.3s; }
         .menu a:hover { color: #ff3b3b; }
 
@@ -61,7 +62,7 @@
             border: 1px solid #333;
             margin-bottom: 30px;
             text-align: center;
-            min-width: 300px;
+            min-width: 320px;
         }
         .ip-box b { color: #ff3b3b; font-size: 22px; display: block; margin-bottom: 10px; }
         .status-text { font-size: 18px; font-weight: bold; }
@@ -120,7 +121,7 @@
     <div class="ip-box">
         <b>DevilNW.aternos.me</b>
         <div id="status-area" class="status-text">
-            Sunucu durumu kontrol ediliyor...
+            Kontrol ediliyor...
         </div>
     </div>
 
@@ -138,12 +139,8 @@
             <p>Efsane geri döndü! DevilNW şimdi aktif. İyi oyunlar dileriz.</p>
         </div>
         <div class="card">
-            <h3>VIP İndirimi</h3>
-            <p>Mağazada kısa süreliğine büyük indirimler başladı! Paketleri kaçırmayın.</p>
-        </div>
-        <div class="card">
             <h3>Discord Etkinliği</h3>
-            <p>Her hafta düzenlenen çekilişlere katılmayı ve ödülleri almayı unutmayın.</p>
+            <p>Discord Sunucusuna arkadaşınızı Davet Edip Ödül Kazanabilirsiniz</p>
         </div>
     </div>
 </div>
@@ -158,27 +155,28 @@
         const statusArea = document.getElementById('status-area');
 
         try {
-            // mcapi.us servisinin önbelleğini aşmak için sonuna rastgele sayı ekliyoruz
-            const response = await fetch(`https://mcapi.us/server/status?ip=${ip}&t=${Math.random()}`);
+            // Aternos'un yalancı sinyallerini aşmak için detaylı API sorgusu yapıyoruz
+            const response = await fetch(`https://api.mcsrvstat.us/2/${ip}`);
             const data = await response.json();
 
-            // data.online true olsa bile bazen Aternos kapalıyken eski veri dönebilir.
-            // Bu yüzden 'online' durumunu ve hata mesajı olup olmadığını kontrol ediyoruz.
-            if (data.online === true && data.last_online !== "0") {
-                statusArea.innerHTML = `Durum: <span class="online">Aktif</span> | Oyuncu: <span style="color:#ff3b3b">${data.players.now}/${data.players.max}</span>`;
+            // KRİTİK KONTROL: Aternos sunucusu kapalıyken genelde data.players gelmez 
+            // veya data.online olsa bile sunucu aslında aktif değildir.
+            if (data.online === true && data.players && data.players.max > 0) {
+                // Sunucu gerçekten açık ve bir slot kapasitesi var
+                statusArea.innerHTML = `Durum: <span class="online">Aktif</span> | Oyuncu: <span style="color:#ff3b3b">${data.players.online}/${data.players.max}</span>`;
             } else {
+                // Sunucu kapalı veya bekleme modunda
                 statusArea.innerHTML = `Durum: <span class="offline">Kapalı (0 Oyuncu)</span>`;
             }
         } catch (error) {
             statusArea.innerHTML = `Durum: <span class="offline">Kapalı (0 Oyuncu)</span>`;
-            console.log("Bağlantı hatası");
         }
     }
 
-    // İlk yüklemede çalıştır
+    // İlk çalıştırma
     updateStatus();
-    // Her 20 saniyede bir durumu otomatik yenile
-    setInterval(updateStatus, 20000);
+    // 30 saniyede bir güncelleme (Aternos verileri geç güncellediği için 30 sn idealdir)
+    setInterval(updateStatus, 30000);
 </script>
 
 </body>
